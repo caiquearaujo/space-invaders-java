@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 public class Player extends Element {
     private final int _playerWidth;
     
-    public Player (String src, String bomb_src, int x, int y) {
+    public Player (String src, int x, int y) {
         super(src, x, y);
         this._playerWidth = this.image().getWidth(null);
     }
