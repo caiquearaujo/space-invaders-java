@@ -23,12 +23,10 @@ public class Coordinate {
         this._y = y;
     }
     
-    public void changeXDirection () {
-        this._dX *= -1;
-    }
-    
-    public void changeYDirection () {
-        this._dY *= -1;
+    public void applyDirection (int dX, int dY) {
+        this._dX = dX;
+        this._dY = dY;
+        
     }
     
     public void moveX (int x) {
