@@ -1,6 +1,7 @@
 package java.space.invaders.Utils;
 
 import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
@@ -46,5 +47,10 @@ public class Draw {
     
     public void die () {
         this._visible = false;
+    }
+    
+    public static Image load (String src) {
+        ImageIcon image = new ImageIcon(src);
+        return image.getImage();
     }
 }

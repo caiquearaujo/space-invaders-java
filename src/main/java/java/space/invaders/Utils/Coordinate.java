@@ -31,6 +31,14 @@ public class Coordinate {
         this._dY *= -1;
     }
     
+    public void moveX (int x) {
+        this._x += x;
+    }
+    
+    public void moveY (int y) {
+        this._y += y;
+    }
+    
     public int x () {
         return this._x;
     }
