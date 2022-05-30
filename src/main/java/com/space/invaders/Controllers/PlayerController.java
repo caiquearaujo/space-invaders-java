@@ -1,8 +1,9 @@
-package java.space.invaders.Controllers;
+package com.space.invaders.Controllers;
 
-import java.space.invaders.Elements.Player;
-import java.space.invaders.Utils.Direction2D;
 import java.awt.event.KeyEvent;
+import com.space.invaders.Elements.Player;
+import com.space.invaders.Elements.Shot;
+import com.space.invaders.Utils.Direction2D;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
@@ -14,6 +15,11 @@ public class PlayerController {
 	public PlayerController(Player player, int velocity) {
 		this._player = player;
 		this._direction = new Direction2D(velocity);
+	}
+
+	public void fire(Shot shot) {
+		shot.vector().copy(this._player.vector());
+		shot.isVisible();
 	}
 
 	public void onActing(int min, int max) {
@@ -32,8 +38,8 @@ public class PlayerController {
 		int key = e.getKeyCode();
 
 		switch (key) {
-		case KeyEvent.VK_LEFT -> this._direction.toLeft();
-		case KeyEvent.VK_RIGHT -> this._direction.toRight();
+			case KeyEvent.VK_LEFT -> this._direction.toLeft();
+			case KeyEvent.VK_RIGHT -> this._direction.toRight();
 		}
 	}
 }

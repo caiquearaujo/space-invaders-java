@@ -1,4 +1,4 @@
-package java.space.invaders.Utils;
+package com.space.invaders.Utils;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
@@ -16,8 +16,7 @@ public class Direction2D {
 	}
 
 	public void apply(Vector2D vector) {
-		vector.move(this._velocity * this._dx,
-			this._velocity * this._dy);
+		vector.move(this._velocity * this._dx, this._velocity * this._dy);
 	}
 
 	public int velocity() {

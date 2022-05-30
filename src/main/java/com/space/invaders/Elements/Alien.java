@@ -1,7 +1,7 @@
-package java.space.invaders.Elements;
+package com.space.invaders.Elements;
 
-import java.space.invaders.Screen;
 import java.awt.Graphics;
+import com.space.invaders.Screen;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>

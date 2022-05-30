@@ -1,10 +1,10 @@
-package java.space.invaders.Utils;
+package com.space.invaders.Utils;
 
-import java.space.invaders.Screen;
-import java.space.invaders.Interfaces.Paintable;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import com.space.invaders.Screen;
+import com.space.invaders.Interfaces.Paintable;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
@@ -59,7 +59,6 @@ public abstract class Draw extends Box2D implements Paintable {
 
 		return draw.hasCollidedWith(this);
 	}
-
 
 	public void paint(Graphics g, Screen screen) {
 		if (this._visible) {

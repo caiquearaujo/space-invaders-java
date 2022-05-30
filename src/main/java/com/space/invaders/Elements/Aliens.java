@@ -1,10 +1,10 @@
-package java.space.invaders.Elements;
+package com.space.invaders.Elements;
 
-import java.space.invaders.Screen;
-import java.space.invaders.Interfaces.Paintable;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
+import com.space.invaders.Screen;
+import com.space.invaders.Interfaces.Paintable;
 
 public class Aliens implements Paintable {
 	private ArrayList<Alien> _aliens;

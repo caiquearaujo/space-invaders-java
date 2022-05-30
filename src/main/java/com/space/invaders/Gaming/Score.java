@@ -1,11 +1,11 @@
-package java.space.invaders.Gaming;
+package com.space.invaders.Gaming;
 
-import java.space.invaders.Interfaces.Paintable;
-import java.space.invaders.Screen;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import com.space.invaders.Screen;
+import com.space.invaders.Interfaces.Paintable;
 
 public class Score implements Paintable {
 	private int _kills;
@@ -45,7 +45,6 @@ public class Score implements Paintable {
 		// Score
 		g.setColor(Color.white);
 		g.setFont(style);
-		g.drawString(score,
-			10 + metrics.stringWidth(lives) + 10, 20);
+		g.drawString(score, 10 + metrics.stringWidth(lives) + 10, 20);
 	}
 }

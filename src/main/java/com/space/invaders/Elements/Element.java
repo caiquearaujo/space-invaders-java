@@ -1,13 +1,12 @@
-package java.space.invaders.Elements;
+package com.space.invaders.Elements;
 
-import java.space.invaders.Utils.Draw;
+import com.space.invaders.Utils.Draw;
 
 /**
- *
  * @author Caique Araujo <caique@piggly.com.br>
  */
 public abstract class Element extends Draw {
-	public Element (String src, int x, int y) {
+	public Element(String src, int x, int y) {
 		super(Draw.load(src), x, y);
 	}
 }

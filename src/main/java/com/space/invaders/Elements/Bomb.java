@@ -1,8 +1,8 @@
-package java.space.invaders.Elements;
+package com.space.invaders.Elements;
 
-import java.space.invaders.Screen;
-import java.space.invaders.Interfaces.Actable;
 import java.util.Random;
+import com.space.invaders.Screen;
+import com.space.invaders.Interfaces.Actable;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
@@ -21,7 +21,7 @@ public class Bomb extends Element implements Actable {
 
 	public void act(Screen screen) {
 		this.actLaunching(screen);
-		this.actCollision(screen);
+		// this.actCollision(screen);
 		this.actMoviment(screen);
 	}
 
@@ -34,21 +34,21 @@ public class Bomb extends Element implements Actable {
 		this.show();
 	}
 
-	private void actCollision(Screen screen) {
-		if (!screen.player.isVisible() || !this.isVisible()) {
-			return;
-		}
+	// private void actCollision(Screen screen) {
+	// if (!screen.player.isVisible() || !this.isVisible()) {
+	// return;
+	// }
 
-		if (this.hasCollidedWith(screen.player)) {
-			if (screen.score.hasLife()) {
-				screen.score.decreaseLife();
-			} else {
-				screen.player.mustDie();
-			}
+	// if (this.hasCollidedWith(screen.player)) {
+	// if (screen.score.hasLife()) {
+	// screen.score.decreaseLife();
+	// } else {
+	// screen.player.mustDie();
+	// }
 
-			this.hide();
-		}
-	}
+	// this.hide();
+	// }
+	// }
 
 	private void actMoviment(Screen screen) {
 		if (!this.isVisible()) {
