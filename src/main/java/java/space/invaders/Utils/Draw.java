@@ -1,55 +1,78 @@
 package java.space.invaders.Utils;
 
+import java.space.invaders.Screen;
+import java.space.invaders.Interfaces.Paintable;
+import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
  * @author Caique Araujo <caique@piggly.com.br>
  */
-public class Draw {
-	private final Box2D _box;
+public abstract class Draw extends Box2D implements Paintable {
 	private final Image _image;
 
 	private boolean _visible;
 	private boolean _dying;
 
-	public Draw (Image image, int x, int y) {
+	public Draw(Image image, int x, int y) {
+		super(x, y, image.getWidth(null), image.getHeight(null));
+
 		this._visible = true;
 		this._dying = false;
 
 		this._image = image;
-		this._box = new Box2D(x, y, image.getWidth(null), image.getHeight(null));
 	}
 
-	public Box2D box () {
-		return this._box;
-	}
-
-	public Image image () {
+	public Image image() {
 		return this._image;
 	}
 
-	public boolean isVisible () {
+	public boolean isVisible() {
 		return this._visible;
 	}
 
-	public void setVisibility (boolean visibility) {
-		this._visible = visibility;
+	public void show() {
+		this._visible = true;
 	}
 
-	public boolean isDying () {
-		return this._dying;
-	}
-
-	public void mustDie () {
-		this._dying = true;
-	}
-
-	public void die () {
+	public void hide() {
 		this._visible = false;
 	}
 
-	public static Image load (String src) {
+	public boolean isDying() {
+		return this._dying;
+	}
+
+	public void mustDie() {
+		this._dying = true;
+	}
+
+	public void die() {
+		this._visible = false;
+	}
+
+	public boolean gotHitBy(Draw draw) {
+		if (!this.isVisible() || !draw.isVisible()) {
+			return false;
+		}
+
+		return draw.hasCollidedWith(this);
+	}
+
+
+	public void paint(Graphics g, Screen screen) {
+		if (this._visible) {
+			g.drawImage(this._image, this.vector().x(), this.vector().y(),
+					screen);
+		}
+
+		if (this._dying) {
+			this.die();
+		}
+	}
+
+	public static Image load(String src) {
 		ImageIcon image = new ImageIcon(src);
 		return image.getImage();
 	}
