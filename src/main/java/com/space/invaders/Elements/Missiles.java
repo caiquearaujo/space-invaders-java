@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import com.space.invaders.Screen;
 import com.space.invaders.Interfaces.Paintable;
+import com.space.invaders.Utils.Draw;
 import com.space.invaders.Utils.Vector2D;
 
 public class Missiles implements Paintable {
@@ -35,6 +36,17 @@ public class Missiles implements Paintable {
 			}
 
 			this._missiles.remove(i);
+		}
+	}
+
+	public void collision(ArrayList<Draw> targets) {
+		for (Shot shot : this._missiles) {
+			for (Draw target : targets) {
+				if (target.gotHitBy(shot)) {
+					shot.hide();
+					target.hide();
+				}
+			}
 		}
 	}
 

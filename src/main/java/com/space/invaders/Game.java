@@ -1,12 +1,14 @@
 package com.space.invaders;
 
 import com.space.invaders.Adapters.ControllerAdapter;
+import com.space.invaders.Elements.Aliens;
 import com.space.invaders.Elements.Player;
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Game implements Runnable {
 	public Player player;
+	public Aliens aliens;
 
 	private boolean _playing;
 	private Screen _screen;
@@ -18,6 +20,7 @@ public class Game implements Runnable {
 
 	public void init() {
 		this.player = new Player(270, 280, 2);
+		this.aliens = new Aliens(4, 6, 150, 5);
 
 		this._screen.addKeyListener(new ControllerAdapter(this.player));
 		this.start();
@@ -26,6 +29,8 @@ public class Game implements Runnable {
 	public void run() {
 		this.player.move();
 		this.player.thresholdOnScreen(2, this._screen.dimension.width - 12);
+
+		this.aliens.move();
 
 		if (this.player.isDying()) {
 			this.stop();
@@ -37,6 +42,7 @@ public class Game implements Runnable {
 		g.drawLine(0, 290, this._screen.dimension.width, 290);
 
 		this.player.paint(g, this._screen);
+		this.aliens.paint(g, this._screen);
 		// this.score.paint(g, this);
 	}
 

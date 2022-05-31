@@ -25,17 +25,23 @@ public class Aliens implements Paintable {
 		return this._aliens.size();
 	}
 
-	public boolean gotHit(Shot shot) {
-		Iterator<Alien> it = this._aliens.iterator();
-
-		while (it.hasNext()) {
-			if (it.next().gotHit(shot)) {
-				return true;
-			}
+	public void move() {
+		for (Alien a : this._aliens) {
+			a.move();
 		}
-
-		return false;
 	}
+
+	// public boolean gotHit(Shot shot) {
+	// Iterator<Alien> it = this._aliens.iterator();
+
+	// while (it.hasNext()) {
+	// if (it.next().gotHit(shot)) {
+	// return true;
+	// }
+	// }
+
+	// return false;
+	// }
 
 	public void paint(Graphics g, Screen screen) {
 		Iterator<Alien> it = this._aliens.iterator();
