@@ -31,6 +31,8 @@ public class Game implements Runnable {
 		this.player.thresholdOnScreen(2, this._screen.dimension.width - 12);
 
 		this.aliens.move();
+		this.player.missiles().collision(this.aliens.get(),
+				a -> this.aliens.explode(a));
 
 		if (this.player.isDying()) {
 			this.stop();

@@ -26,22 +26,27 @@ public class Aliens implements Paintable {
 	}
 
 	public void move() {
-		for (Alien a : this._aliens) {
-			a.move();
+		Alien a;
+
+		for (int i = 0; i < this._aliens.size(); i++) {
+			a = this._aliens.get(i);
+
+			if (a.isVisible()) {
+				a.move();
+				continue;
+			}
+
+			this._aliens.remove(i);
 		}
 	}
 
-	// public boolean gotHit(Shot shot) {
-	// Iterator<Alien> it = this._aliens.iterator();
+	public void explode(Alien alien) {
+		alien.hide();
+	}
 
-	// while (it.hasNext()) {
-	// if (it.next().gotHit(shot)) {
-	// return true;
-	// }
-	// }
-
-	// return false;
-	// }
+	public ArrayList<Alien> get() {
+		return this._aliens;
+	}
 
 	public void paint(Graphics g, Screen screen) {
 		Iterator<Alien> it = this._aliens.iterator();

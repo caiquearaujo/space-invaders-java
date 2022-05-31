@@ -44,9 +44,9 @@ public abstract class Box2D {
 	}
 
 	public boolean hasCollidedWith(Box2D x) {
-		boolean inMiddleX = (x.right() >= this.left()
-				&& x.right() <= this.right())
-				|| (x.left() >= this.left() && x.right() <= this.right());
+		boolean inMiddleX =
+				(x.right() >= this.left() && x.right() <= this.right())
+						|| (x.left() >= this.left() && x.left() <= this.right());
 
 		boolean inMiddleY =
 				(x.bottom() >= this.top() && x.bottom() <= this.bottom())

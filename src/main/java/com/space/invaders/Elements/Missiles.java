@@ -1,12 +1,12 @@
 package com.space.invaders.Elements;
 
 import java.awt.Graphics;
+import java.util.function.Consumer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import com.space.invaders.Screen;
 import com.space.invaders.Interfaces.Paintable;
-import com.space.invaders.Utils.Draw;
 import com.space.invaders.Utils.Vector2D;
 
 public class Missiles implements Paintable {
@@ -39,12 +39,13 @@ public class Missiles implements Paintable {
 		}
 	}
 
-	public void collision(ArrayList<Draw> targets) {
+	public void collision(ArrayList<Alien> targets,
+			Consumer<Alien> callback) {
 		for (Shot shot : this._missiles) {
-			for (Draw target : targets) {
+			for (Alien target : targets) {
 				if (target.gotHitBy(shot)) {
 					shot.hide();
-					target.hide();
+					callback.accept(target);
 				}
 			}
 		}
