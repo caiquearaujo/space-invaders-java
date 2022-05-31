@@ -1,5 +1,7 @@
 package com.space.invaders.Utils;
 
+import java.awt.Rectangle;
+
 /**
  * @author Caique Araujo <caique@piggly.com.br>
  */

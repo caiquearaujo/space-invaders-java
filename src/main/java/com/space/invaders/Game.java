@@ -24,8 +24,6 @@ public class Game implements Runnable {
 	}
 
 	public void run() {
-		this.player.shot().move();
-
 		this.player.move();
 		this.player.thresholdOnScreen(2, this._screen.dimension.width - 12);
 

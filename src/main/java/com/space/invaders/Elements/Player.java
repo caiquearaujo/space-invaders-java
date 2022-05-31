@@ -11,7 +11,7 @@ public class Player extends Element {
 
 	private final int _velocity;
 
-	private Shot _shot;
+	private Missiles _missiles;
 	private int _direction;
 
 	public Player(int x, int y, int velocity) {
@@ -20,17 +20,11 @@ public class Player extends Element {
 		this._velocity = velocity;
 		this._direction = 0;
 
-		this._shot = new Shot(-100, -100);
-		this._shot.die();
+		this._missiles = new Missiles();
 	}
 
 	public void fire() {
-		if (this._shot.isVisible()) {
-			return;
-		}
-
-		this._shot = new Shot(this.vector().x(), this.vector().y());
-		this._shot.show();
+		this._missiles.spawn(this.vector());
 	}
 
 	public void walkToLeft() {
@@ -47,6 +41,7 @@ public class Player extends Element {
 
 	public void move() {
 		this.vector().moveX(this._direction * this._velocity);
+		this._missiles.move();
 	}
 
 	public void thresholdOnScreen(int minLimit, int maxLimit) {
@@ -59,10 +54,10 @@ public class Player extends Element {
 
 	public void paint(Graphics g, Screen screen) {
 		super.paint(g, screen);
-		this._shot.paint(g, screen);
+		this._missiles.paint(g, screen);
 	}
 
-	public Shot shot() {
-		return this._shot;
+	public Missiles missiles() {
+		return this._missiles;
 	}
 }
